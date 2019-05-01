@@ -13,22 +13,24 @@ public class planetCommands {
     static int roverPositionY = planetHeight / 2;
 
     static Random randomNumber = new Random();
-    static LinkedHashMap<int[], String> mars = new LinkedHashMap<>();
+    static String[][] mars = new String[planetHeight][planetWidth];
 
     public static void createPlanet() {
 
         for (int i = 0; i < planetWidth; i++) {
             for (int j = 0; j < planetHeight; j++) {
                 int[] planet = new int[] { i, j };
-                if (randomNumber.nextDouble() < 0.25 && !isRoverPosition(i, j))
-                    mars.put(planet, "#");
+                if (randomNumber.nextDouble() < 0.25 && !isRoverPosition(i, j)) {
+                    
+                }
+
             }
         }
     }
 
     public static void positionRover() {
 
-        mars.put(new int[] { roverPositionX, roverPositionY }, "north");
+
     }
 
     public static boolean isRoverPosition(int i, int j) {
@@ -51,22 +53,7 @@ public class planetCommands {
 
 
 
-                if (get(mars, currentPosition) == null) {
-                    System.out.print(" ");
-                    continue;
-                }
-                else if (get(mars, currentPosition).equals("#"))
-                    System.out.print("#");
 
-
-                else if (get(mars, currentPosition).equals("north"))
-                    System.out.print("^");
-                else if (get(mars, currentPosition).equals("south"))
-                    System.out.print("V");
-                else if (get(mars, currentPosition).equals("east"))
-                    System.out.print(">");
-                else if (get(mars, currentPosition).equals("west"))
-                    System.out.print("<");
 
             }
             System.out.println();
