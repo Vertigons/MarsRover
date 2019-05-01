@@ -84,12 +84,12 @@ public class RoverCommands {
         int roverPositionY = planetCommands.getRoverPositionY();
         int roverPositionX = planetCommands.getRoverPositionX();
 
-        
+        if(!isRockWestOfRover()) {
             mars[roverPositionY][roverPositionX] = " ";
             planetCommands.setRoverPositionY(roverPositionY);
             planetCommands.setRoverPositionX(roverPositionX - 1);
             updateRoverPosition(mars);
-
+        }
 
     }
 
@@ -98,12 +98,12 @@ public class RoverCommands {
         int roverPositionY = planetCommands.getRoverPositionY();
         int roverPositionX = planetCommands.getRoverPositionX();
 
-
+        if (!isRockEastOfRover()) {
             mars[roverPositionY][roverPositionX] = " ";
             planetCommands.setRoverPositionY(roverPositionY);
             planetCommands.setRoverPositionX(roverPositionX + 1);
             updateRoverPosition(mars);
-
+        }
 
     }
 
@@ -112,12 +112,12 @@ public class RoverCommands {
         int roverPositionY = planetCommands.getRoverPositionY();
         int roverPositionX = planetCommands.getRoverPositionX();
 
-
+        if(!isRockNorthOfRover()) {
             mars[roverPositionY][roverPositionX] = " ";
             planetCommands.setRoverPositionY(roverPositionY - 1);
             planetCommands.setRoverPositionX(roverPositionX);
             updateRoverPosition(mars);
-
+        }
 
     }
 
@@ -126,12 +126,12 @@ public class RoverCommands {
         int roverPositionY = planetCommands.getRoverPositionY();
         int roverPositionX = planetCommands.getRoverPositionX();
 
-
-            mars[roverPositionY][roverPositionX] = " ";
-            planetCommands.setRoverPositionY(roverPositionY + 1);
-            planetCommands.setRoverPositionX(roverPositionX);
-            updateRoverPosition(mars);
-
+            if(!isRockSouthOfRover()) {
+                mars[roverPositionY][roverPositionX] = " ";
+                planetCommands.setRoverPositionY(roverPositionY + 1);
+                planetCommands.setRoverPositionX(roverPositionX);
+                updateRoverPosition(mars);
+            }
 
     }
 
@@ -146,6 +146,38 @@ public class RoverCommands {
             turnRoverRight();
         }
 
+    }
+
+    public boolean isRockWestOfRover() {
+        String[][] mars = planetCommands.getPlanet();
+        int roverPositionY = planetCommands.getRoverPositionY();
+        int roverPositionX = planetCommands.getRoverPositionX();
+
+        return mars[roverPositionY][roverPositionX - 1] == "#";
+    }
+
+    public boolean isRockEastOfRover() {
+        String[][] mars = planetCommands.getPlanet();
+        int roverPositionY = planetCommands.getRoverPositionY();
+        int roverPositionX = planetCommands.getRoverPositionX();
+
+        return mars[roverPositionY][roverPositionX + 1] == "#";
+    }
+
+    public boolean isRockNorthOfRover() {
+        String[][] mars = planetCommands.getPlanet();
+        int roverPositionY = planetCommands.getRoverPositionY();
+        int roverPositionX = planetCommands.getRoverPositionX();
+
+        return mars[roverPositionY - 1][roverPositionX] == "#";
+    }
+
+    public boolean isRockSouthOfRover() {
+        String[][] mars = planetCommands.getPlanet();
+        int roverPositionY = planetCommands.getRoverPositionY();
+        int roverPositionX = planetCommands.getRoverPositionX();
+
+        return mars[roverPositionY + 1][roverPositionX] == "#";
     }
 
     public void updateRoverPosition(String[][] s) {
