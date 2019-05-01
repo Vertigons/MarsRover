@@ -25,9 +25,7 @@ public class Start {
 			randomNumber.setSeed(seed);
 			// System.drawPlanet.println("Seed: " + seed);
 		}
-		planetCommands.initializePlanet();
-		planetCommands.initializeRover();
-		planetCommands.printPlanet();
+		planetCommands.createPlanet();
 	}
 
 

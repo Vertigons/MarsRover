@@ -49,6 +49,15 @@ public class planetCommands {
 
     }
 
+    public void createPlanet() {
+
+        initializePlanet();
+        initializeRover();
+        printPlanet();
+
+
+    }
+
 
 
     public static String get(Map<int[], String> kloetze, int[] p) {
