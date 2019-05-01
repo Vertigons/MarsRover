@@ -74,16 +74,6 @@ public class planetCommands {
     public String[][] getPlanet() {
         return mars;
     }
-
-
-
-    public static String get(Map<int[], String> kloetze, int[] p) {
-        Set<Map.Entry<int[], String>> entrySet = kloetze.entrySet();
-        for (Map.Entry<int[], String> entry : entrySet) {
-            if (entry.getKey()[0] == p[0] && entry.getKey()[1] == p[1])
-                return entry.getValue();
-        }
-        return null;
-    }
+    
 
 }
