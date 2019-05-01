@@ -7,13 +7,13 @@ import java.util.Set;
 
 public class planetCommands {
 
-    static int planetWidth = 80;
-    static int planetHeight = 20;
-    static int roverPositionX = planetWidth / 2;
-    static int roverPositionY = planetHeight / 2;
+    private static int planetWidth = 80;
+    private static int planetHeight = 20;
+    private static int roverPositionX = planetWidth / 2;
+    private static int roverPositionY = planetHeight / 2;
 
     static Random randomNumber = new Random();
-    static String[][] mars = new String[planetHeight][planetWidth];
+    private static String[][] mars = new String[planetHeight][planetWidth];
 
 
 
@@ -56,6 +56,23 @@ public class planetCommands {
         printPlanet();
 
 
+    }
+
+    public int getRoverPositionX() {
+        return roverPositionX;
+    }
+    public int getRoverPositionY() {
+        return roverPositionY;
+    }
+    public void setRoverPositionX(int x) {
+        roverPositionX = x;
+    }
+    public void setRoverPositionY(int y) {
+        roverPositionY = y;
+    }
+
+    public String[][] getPlanet() {
+        return mars;
     }
 
 
