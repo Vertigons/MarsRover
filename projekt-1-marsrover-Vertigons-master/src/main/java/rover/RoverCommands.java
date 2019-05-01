@@ -9,37 +9,45 @@ public class RoverCommands {
 
     public static planetCommands planetCommands = new planetCommands();
 
-    public static boolean roverFacesSouth(int[] roverPosition) {
-        return false;
-    }
 
-    public static boolean roverFacesNorth(int[] roverPosition) {
-        return false;
-    }
 
-    public static boolean roverFacesEast(int[] roverPosition) {
-        return false;
-    }
+    public  void moveRoverForward() {
 
-    public static boolean roverFacesWest(int[] roverPosition) {
-        return false;
-    }
+        if (direction == "^") {
+            moveRoverNorth();
+        }
+        else if (direction == "<") {
+            moveRoverWest();
 
-    public static boolean positionIsRock(int[] roverPosition) {
-        return false;
-    }
-
-    public static void moveRoverForward() {
-
+        }
+        else if (direction == "V") {
+            moveRoverSouth();
+        }
+        else if (direction == ">") {
+            moveRoverEast();
+        }
 
     }
 
-    public static void moveRoverBackward() {
+    public  void moveRoverBackward() {
 
+        if (direction == "^") {
+            moveRoverSouth();
+        }
+        else if (direction == "<") {
+            moveRoverEast();
+
+        }
+        else if (direction == "V") {
+            moveRoverNorth();
+        }
+        else if (direction == ">") {
+            moveRoverWest();
+        }
 
     }
 
-    public static void turnRoverLeft() {
+    public  void turnRoverLeft() {
         if (direction == "^") {
             direction = "<";
         }
@@ -71,7 +79,63 @@ public class RoverCommands {
 
     }
 
-    public static void moveRover(char moveCommand) {
+    private  void moveRoverWest() {
+        String[][] mars = planetCommands.getPlanet();
+        int roverPositionY = planetCommands.getRoverPositionY();
+        int roverPositionX = planetCommands.getRoverPositionX();
+
+        
+            mars[roverPositionY][roverPositionX] = " ";
+            planetCommands.setRoverPositionY(roverPositionY);
+            planetCommands.setRoverPositionX(roverPositionX - 1);
+            updateRoverPosition(mars);
+
+
+    }
+
+    private void moveRoverEast() {
+        String[][] mars = planetCommands.getPlanet();
+        int roverPositionY = planetCommands.getRoverPositionY();
+        int roverPositionX = planetCommands.getRoverPositionX();
+
+
+            mars[roverPositionY][roverPositionX] = " ";
+            planetCommands.setRoverPositionY(roverPositionY);
+            planetCommands.setRoverPositionX(roverPositionX + 1);
+            updateRoverPosition(mars);
+
+
+    }
+
+    private void moveRoverNorth() {
+        String[][] mars = planetCommands.getPlanet();
+        int roverPositionY = planetCommands.getRoverPositionY();
+        int roverPositionX = planetCommands.getRoverPositionX();
+
+
+            mars[roverPositionY][roverPositionX] = " ";
+            planetCommands.setRoverPositionY(roverPositionY - 1);
+            planetCommands.setRoverPositionX(roverPositionX);
+            updateRoverPosition(mars);
+
+
+    }
+
+    private void moveRoverSouth() {
+        String[][] mars = planetCommands.getPlanet();
+        int roverPositionY = planetCommands.getRoverPositionY();
+        int roverPositionX = planetCommands.getRoverPositionX();
+
+
+            mars[roverPositionY][roverPositionX] = " ";
+            planetCommands.setRoverPositionY(roverPositionY + 1);
+            planetCommands.setRoverPositionX(roverPositionX);
+            updateRoverPosition(mars);
+
+
+    }
+
+    public  void moveRover(char moveCommand) {
         if (moveCommand == 'f') {
             moveRoverForward();
         } else if (moveCommand == 'b') {
