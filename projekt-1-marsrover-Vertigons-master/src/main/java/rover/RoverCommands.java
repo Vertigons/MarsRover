@@ -5,6 +5,8 @@ import java.util.Set;
 
 public class RoverCommands {
 
+    static String direction = "^";
+
     public static planetCommands planetCommands = new planetCommands();
 
     public static boolean roverFacesSouth(int[] roverPosition) {
@@ -38,12 +40,34 @@ public class RoverCommands {
     }
 
     public static void turnRoverLeft() {
-
+        if (direction == "^") {
+            direction = "<";
+        }
+        else if (direction == "<") {
+            direction = "V";
+        }
+        else if (direction == "V") {
+            direction = ">";
+        }
+        else if (direction == ">") {
+            direction = "^";
+        }
 
     }
 
     public static void turnRoverRight() {
-
+        if (direction == "^") {
+            direction = ">";
+        }
+        else if (direction == "<") {
+            direction = "^";
+        }
+        else if (direction == "V") {
+            direction = "<";
+        }
+        else if (direction == ">") {
+            direction = "V";
+        }
 
     }
 
@@ -58,6 +82,10 @@ public class RoverCommands {
             turnRoverRight();
         }
 
+    }
+
+    public void updateRoverPosition(String[][] s) {
+        s[planetCommands.getRoverPositionY()][planetCommands.getRoverPositionX()] = direction;
     }
 
 

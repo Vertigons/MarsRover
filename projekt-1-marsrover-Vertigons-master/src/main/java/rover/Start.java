@@ -26,6 +26,16 @@ public class Start {
 			// System.drawPlanet.println("Seed: " + seed);
 		}
 		planetCommands.createPlanet();
+
+		String pg = args[0];
+
+		for (int i = 0; i < pg.length(); i++) {
+			roverCommands.moveRover(pg.charAt(i));
+			roverCommands.updateRoverPosition(planetCommands.getPlanet());
+			planetCommands.printPlanet();
+
+
+		}
 	}
 
 
