@@ -17,7 +17,22 @@ public class planetCommands {
 
 
 
+    public void initializePlanet() {
+        for (int i = 0; i < mars.length; i++) {
+            for (int j = 0; j < mars[i].length; j++) {
+                if (randomNumber.nextDouble() < 0.25 && i != 10 && j != 40) {
+                    mars[i][j] = "#";
+                }
+                else
+                    mars[i][j] = " ";
 
+            }
+        }
+    }
+
+    public  void initializeRover() {
+        mars[planetHeight / 2][planetWidth / 2] = "^";
+    }
 
 
     public void printPlanet() {
