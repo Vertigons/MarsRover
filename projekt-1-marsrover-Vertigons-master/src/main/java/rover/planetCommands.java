@@ -15,54 +15,26 @@ public class planetCommands {
     static Random randomNumber = new Random();
     static String[][] mars = new String[planetHeight][planetWidth];
 
-    public static void createPlanet() {
 
-        for (int i = 0; i < planetWidth; i++) {
-            for (int j = 0; j < planetHeight; j++) {
-                int[] planet = new int[] { i, j };
-                if (randomNumber.nextDouble() < 0.25 && !isRoverPosition(i, j)) {
-                    
-                }
 
+
+
+
+    public void printPlanet() {
+        for (String[] a : mars) {
+            for (String i : a) {
+                System.out.print(i + " " );
             }
-        }
-    }
-
-    public static void positionRover() {
-
-
-    }
-
-    public static boolean isRoverPosition(int i, int j) {
-
-        return (roverPositionX == i && roverPositionY == j);
-    }
-
-    public static void drawPlanet() {
-        // Set<int[]> keySet = mars.keySet();
-        // for (int[] e : keySet) {
-        // if (e[0] == 39 && e[1] == 10)
-        // System.err.println(mars.get(e) + " " + e.hashCode());
-        // }
-
-        for (int j = 0; j < planetHeight; j++) {
-            for (int i = 0; i < planetWidth; i++) {
-                //System.drawPlanet.println(i + "," + j + ": " + get(mars, new int[] { i, j }));
-
-                int[] currentPosition = new int[] {i, j};
-
-
-
-
-
-            }
-            System.out.println();
+            System.out.println(" ");
         }
         for (int i = 0; i < planetWidth; i++) {
-            System.out.print("=");
+            System.out.print("= ");
         }
-        System.out.println();
+        System.out.println("");
+
     }
+
+
 
     public static String get(Map<int[], String> kloetze, int[] p) {
         Set<Map.Entry<int[], String>> entrySet = kloetze.entrySet();

@@ -25,14 +25,7 @@ public class Start {
 			randomNumber.setSeed(seed);
 			// System.drawPlanet.println("Seed: " + seed);
 		}
-		planetCommands.createPlanet();
-		planetCommands.positionRover();
-		String positionCommands = args[0];
-		planetCommands.drawPlanet();
-		for (int i = 0; i < positionCommands.length(); i++) {
-			roverCommands.moveRover(positionCommands.charAt(i));
-			planetCommands.drawPlanet();
-		}
+		planetCommands.printPlanet();
 	}
 
 
